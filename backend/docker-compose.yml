@@ -1,0 +1,15 @@
+services:
+  flix_api_app:
+    container_name: flix_api_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    stdin_open: true  
+    tty: true 
+    ports:
+      - "8003:8003"
+    volumes:
+      - .:/app
+    env_file:
+      - envs/.env
